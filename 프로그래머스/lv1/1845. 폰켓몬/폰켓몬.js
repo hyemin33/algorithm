@@ -1,5 +1,7 @@
 function solution(nums) {
     let numSet = new Set(nums);
-    const pokemonCount = nums.length/2;
-    return Math.min(numSet.size, pokemonCount);
+    console.log(numSet) 
+    const poketmonCount = nums.length/2;
+    console.log(poketmonCount)
+    
 }
