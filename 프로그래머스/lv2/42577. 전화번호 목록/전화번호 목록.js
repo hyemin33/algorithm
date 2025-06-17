@@ -3,10 +3,9 @@ function solution(phone_book) {
     
     for(let i = 0; i < phone_book.length - 1; i++){
         const currentPhone = phone_book[i];
-        const slicePhone = phone_book[i+1].substring(0, currentPhone.length);
-        if(currentPhone === slicePhone) return false;
+        const nextPhone = phone_book[i+1];
+        if (nextPhone.startsWith(currentPhone)) return false;
     }
-    
-    return true;
 
+    return true;
 }
