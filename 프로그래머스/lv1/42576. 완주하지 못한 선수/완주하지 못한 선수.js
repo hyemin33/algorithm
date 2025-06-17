@@ -1,14 +1,12 @@
 function solution(participant, completion) {
-    let hasMap = new Map();
-    
-    for(let i = 0 ; i < participant.length ; i++) {
-        let person1 = participant[i];
-        let person2 = completion[i];
-        hasMap.set(person1, (hasMap.get(person1) || 0) +1);
-        hasMap.set(person2, (hasMap.get(person2) || 0) -1);
+    let map = new Map();
+
+    for(let i=0 ; i<participant.length; i++){
+        map.set(participant[i], (map.get(participant[i]) ?? 0) + 1);
+        map.set(completion[i], (map.get(completion[i]) ?? 0) - 1)
     }
     
-    for(let [key,value] of hasMap) {
-        if(value > 0) return key
+    for([key,value] of map) {
+         if(value > 0) return key
     }
 }
