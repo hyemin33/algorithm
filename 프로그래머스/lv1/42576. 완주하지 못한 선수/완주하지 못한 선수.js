@@ -1,18 +1,14 @@
-/* 마라톤 참여한 선수들 = participant
-   완주한 선수들 = completion
-   완주하지 못한 선수 이름을 return 해라.
-   
-   participant 선수들 중 completion에 없는 선수를 return 하면 된다.
-   이들 중 동명이인이 있을 수 있다.
-*/
 function solution(participant, completion) {
-    let answer = []
-    participant.sort();
-    completion.sort();
+    let hasMap = new Map();
     
-    for(let i = 0; i<participant.length; i++ ){
-        if(participant[i] !== completion[i]) return participant[i]
+    for(let i = 0 ; i < participant.length ; i++) {
+        let person1 = participant[i];
+        let person2 = completion[i];
+        hasMap.set(person1, (hasMap.get(person1) || 0) +1);
+        hasMap.set(person2, (hasMap.get(person2) || 0) -1);
     }
     
-  
+    for(let [key,value] of hasMap) {
+        if(value > 0) return key
+    }
 }
